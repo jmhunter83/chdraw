@@ -1,3 +1,6 @@
+> **csldraw:** this is Jacob's fork of LibrePaint. Fork-specific docs and
+> scripts are in [`csldraw/`](csldraw/README.md).
+
 # LibrePaint
 
 [日本語版](README.ja.md)
