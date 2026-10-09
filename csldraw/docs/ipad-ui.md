@@ -10,6 +10,26 @@ Canvas first. She should be able to draw, switch brush, change size and
 color, manage layers, undo, and save without a keyboard and without
 hunting through menus. Reference points: Clip Studio on iPad and Procreate.
 
+## What we know about her setup
+
+| Item | Value | Effect on the UI |
+|---|---|---|
+| Hand | Right | Tool sliders and panels on the left edge, out from under the drawing hand |
+| iPad | iPad Pro 12.9" (2021, M1) | Large screen; RAM is 8 or 16 GB depending on storage, so test big canvases |
+| Pencil | Apple Pencil 2nd gen | Pressure, tilt, double-tap. No hover, no squeeze |
+| Upgrade | New iPad and likely Pencil Pro soon | Build hover preview and squeeze as features that turn on when the hardware supports them |
+
+## Procreate as a reference
+
+Procreate is the iPad app people find most fun to draw in. Patterns to borrow:
+
+- Brush, smudge and eraser as three icons top right; everything else one tap away.
+- Size and opacity sliders on the screen edge, swappable left or right.
+- Hold at the end of a stroke to snap it into a clean line or shape (QuickShape).
+- Drag a color onto a closed shape to fill it (ColorDrop).
+- Touch and hold for the eyedropper; two-finger tap undo, three-finger tap redo.
+- Time-lapse replay of the drawing. Krita's Recorder docker already does this.
+
 ## Existing work to build on
 
 | Source | What exists | Status |
@@ -37,9 +57,10 @@ Ship a tuned default profile inside the iPad build:
 
 ### B. Native iPad behavior (small code changes in the fork)
 
-- [ ] Pencil double-tap and Pencil Pro squeeze → configurable action
-      (eraser toggle, pop-up palette, undo).
-- [ ] Pencil hover → brush outline preview before contact.
+- [ ] Pencil double-tap → configurable action (eraser toggle, pop-up
+      palette, undo). Works on her current Pencil 2.
+- [ ] After her upgrade: Pencil Pro squeeze → same action menu; hover →
+      brush outline preview before contact.
 - [ ] Palm rejection: fingers never paint while the Pencil is in use.
 - [ ] Safe Area, rotation, Stage Manager, external keyboard shortcuts.
 
@@ -53,10 +74,12 @@ Ship a tuned default profile inside the iPad build:
 
 ## Questions for her
 
-Answers set the order of phases A–C.
+Sent as a page with pictures: https://claude.ai/artifact/3MHKaBM9XaP7HUSDh2ZcCH
+(answers come back as text). Hand and Pencil are already known (above).
 
-- [ ] Which 10 tools and brushes does she use most in Clip Studio?
-- [ ] Which hand does she draw with? Toolbars go on the other side.
+- [ ] Which tools does she use most in Clip Studio?
+- [ ] Simple (Procreate), panels (Clip Studio), or in between?
 - [ ] Portrait, landscape, or both?
-- [ ] Which Clip Studio gestures does she rely on?
-- [ ] What annoys her most in Krita on the Mac so far?
+- [ ] Which finger and Pencil gestures does she rely on?
+- [ ] What bugs her in Clip Studio or Krita?
+- [ ] One wish for the app.

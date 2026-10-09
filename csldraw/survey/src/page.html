@@ -1,0 +1,323 @@
+<title>Your iPad Drawing Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: one narrow column like a sketchbook page; each question is a numbered sheet, answers are big tappable chips. */
+:root {
+  --paper: #f3f5f8;
+  --sheet: #ffffff;
+  --ink: #1b2233;
+  --muted: #5b6478;
+  --line: #d9dee8;
+  --accent: #d1336f;
+  --accent-soft: #fbe3ec;
+  --ok: #1f7a4d;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #12151d; --sheet: #1b2030; --ink: #eef1f7; --muted: #a3abbd;
+    --line: #2f364a; --accent: #ff6b9e; --accent-soft: #3a1f2b; --ok: #4fc58a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #12151d; --sheet: #1b2030; --ink: #eef1f7; --muted: #a3abbd;
+  --line: #2f364a; --accent: #ff6b9e; --accent-soft: #3a1f2b; --ok: #4fc58a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 17px/1.55 var(--body);
+  padding-inline: 16px; padding-block: 28px 64px;
+}
+main { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; flex-direction: column; gap: 10px; padding-block: 8px 6px; }
+.eyebrow { font: 700 13px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 800 clamp(30px, 7vw, 44px)/1.05 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { margin: 0; color: var(--muted); max-width: 60ch; }
+.sheet {
+  background: var(--sheet); border: 1px solid var(--line); border-radius: 14px;
+  padding: 20px 18px; display: flex; flex-direction: column; gap: 12px;
+}
+.q-head { display: flex; gap: 12px; align-items: baseline; }
+.q-num { font: 800 15px/1 var(--display); color: var(--accent); min-width: 1.6em; }
+h2 { font: 600 20px/1.25 var(--display); margin: 0; text-wrap: balance; }
+.hint { margin: 0; color: var(--muted); font-size: 15px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px;
+  border: 1.5px solid var(--line); border-radius: 999px; background: var(--sheet);
+  font-size: 16px; user-select: none; transition: background .12s, border-color .12s;
+}
+.chip input:checked + span { background: var(--accent-soft); border-color: var(--accent); font-weight: 700; }
+.chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+textarea, input[type=text] {
+  width: 100%; font: 16px/1.5 var(--body); color: var(--ink); background: var(--paper);
+  border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px;
+}
+textarea { min-height: 88px; resize: vertical; }
+textarea:focus, input[type=text]:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.send { background: var(--ink); color: var(--sheet); border: 0; }
+.send h2 { color: var(--sheet); }
+.send .hint { color: color-mix(in srgb, var(--sheet) 75%, transparent); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+button {
+  font: 700 17px/1 var(--body); min-height: 50px; padding: 0 22px; border-radius: 999px;
+  border: 0; background: var(--accent); color: #fff; cursor: pointer;
+}
+button.ghost { background: transparent; color: var(--sheet); border: 1.5px solid color-mix(in srgb, var(--sheet) 50%, transparent); }
+button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+.status { min-height: 1.5em; margin: 0; font-weight: 700; }
+#fallback { display: flex; flex-direction: column; gap: 8px; }
+#fallback textarea { background: var(--sheet); min-height: 180px; font-size: 14px; }
+.progress { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 15px; margin: 0; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main>
+  <header>
+    <div class="eyebrow">For your iPad drawing app</div>
+    <h1>Your iPad Drawing Setup</h1>
+    <p class="lede">Dad and I are building you a drawing app on the iPad, based on Krita. We want it to work the way you draw. Answer what you can and skip the rest. It takes about five minutes. When you're done, tap <strong>Copy my answers</strong> at the bottom and text them to Dad.</p>
+  </header>
+
+  <form id="f" novalidate>
+    <div style="display:flex;flex-direction:column;gap:18px">
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">1</span><h2>Which tools do you use most in Clip Studio?</h2></div>
+      <p class="hint">Tap all that apply. They'll go in the main toolbar.</p>
+      <div class="chips" data-name="tools">
+        <label class="chip"><input type="checkbox" id="t-gpen" value="G-pen / inking pen"><span>G-pen / inking pen</span></label>
+        <label class="chip"><input type="checkbox" id="t-pencil" value="Pencil"><span>Pencil</span></label>
+        <label class="chip"><input type="checkbox" id="t-brush" value="Paint brush / watercolor"><span>Paint brush / watercolor</span></label>
+        <label class="chip"><input type="checkbox" id="t-air" value="Airbrush"><span>Airbrush</span></label>
+        <label class="chip"><input type="checkbox" id="t-blend" value="Blend / smudge"><span>Blend / smudge</span></label>
+        <label class="chip"><input type="checkbox" id="t-eraser" value="Eraser"><span>Eraser</span></label>
+        <label class="chip"><input type="checkbox" id="t-veraser" value="Vector eraser"><span>Vector eraser</span></label>
+        <label class="chip"><input type="checkbox" id="t-fill" value="Fill bucket"><span>Fill bucket</span></label>
+        <label class="chip"><input type="checkbox" id="t-lfill" value="Lasso fill"><span>Lasso fill</span></label>
+        <label class="chip"><input type="checkbox" id="t-select" value="Selection / lasso"><span>Selection / lasso</span></label>
+        <label class="chip"><input type="checkbox" id="t-transform" value="Transform / move"><span>Transform / move</span></label>
+        <label class="chip"><input type="checkbox" id="t-liquify" value="Liquify"><span>Liquify</span></label>
+        <label class="chip"><input type="checkbox" id="t-eyedrop" value="Eyedropper"><span>Eyedropper</span></label>
+        <label class="chip"><input type="checkbox" id="t-gradient" value="Gradient"><span>Gradient</span></label>
+        <label class="chip"><input type="checkbox" id="t-text" value="Text"><span>Text</span></label>
+        <label class="chip"><input type="checkbox" id="t-ruler" value="Rulers / perspective"><span>Rulers / perspective</span></label>
+        <label class="chip"><input type="checkbox" id="t-frame" value="Frame borders (comic panels)"><span>Frame borders (comic panels)</span></label>
+        <label class="chip"><input type="checkbox" id="t-tone" value="Screentones"><span>Screentones</span></label>
+        <label class="chip"><input type="checkbox" id="t-3d" value="3D models / poses"><span>3D models / poses</span></label>
+        <label class="chip"><input type="checkbox" id="t-anim" value="Animation"><span>Animation</span></label>
+      </div>
+      <input type="text" id="tools-other" placeholder="Favorite brushes or anything missing">
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">2</span><h2>Which hand do you draw with?</h2></div>
+      <p class="hint">Toolbars go on the other side so your hand doesn't cover them.</p>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="hand" id="h-r" value="Right"><span>Right</span></label>
+        <label class="chip"><input type="radio" name="hand" id="h-l" value="Left"><span>Left</span></label>
+        <label class="chip"><input type="radio" name="hand" id="h-b" value="Both"><span>Both</span></label>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">3</span><h2>How do you hold the iPad when you draw?</h2></div>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="orient" id="o-p" value="Portrait (tall)"><span>Portrait (tall)</span></label>
+        <label class="chip"><input type="radio" name="orient" id="o-l" value="Landscape (wide)"><span>Landscape (wide)</span></label>
+        <label class="chip"><input type="radio" name="orient" id="o-b" value="Both, depends"><span>Both, depends</span></label>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">4</span><h2>Which finger and Pencil moves do you use?</h2></div>
+      <p class="hint">Tap the ones you'd miss if they were gone.</p>
+      <div class="chips" data-name="gestures">
+        <label class="chip"><input type="checkbox" id="g-2tap" value="Two-finger tap = undo"><span>Two-finger tap = undo</span></label>
+        <label class="chip"><input type="checkbox" id="g-3tap" value="Three-finger tap = redo"><span>Three-finger tap = redo</span></label>
+        <label class="chip"><input type="checkbox" id="g-pinch" value="Pinch to zoom"><span>Pinch to zoom</span></label>
+        <label class="chip"><input type="checkbox" id="g-twist" value="Twist to rotate canvas"><span>Twist to rotate canvas</span></label>
+        <label class="chip"><input type="checkbox" id="g-hold" value="Press and hold = eyedropper"><span>Press and hold = eyedropper</span></label>
+        <label class="chip"><input type="checkbox" id="g-dtap" value="Pencil double-tap"><span>Pencil double-tap</span></label>
+        <label class="chip"><input type="checkbox" id="g-squeeze" value="Pencil squeeze"><span>Pencil squeeze</span></label>
+        <label class="chip"><input type="checkbox" id="g-edge" value="Edge keyboard (Clip Studio)"><span>Edge keyboard (Clip Studio)</span></label>
+        <label class="chip"><input type="checkbox" id="g-flip" value="Flip canvas"><span>Flip canvas</span></label>
+      </div>
+      <input type="text" id="g-dtap-what" placeholder="What does Pencil double-tap do for you now?">
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">5</span><h2>Which Apple Pencil do you have?</h2></div>
+      <p class="hint">Some Pencils can preview your brush before touching the screen, or squeeze for a menu.</p>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="pencil" id="p-1" value="1st gen (plugs in)"><span>1st gen (plugs in)</span></label>
+        <label class="chip"><input type="radio" name="pencil" id="p-2" value="2nd gen (sticks on the side)"><span>2nd gen (sticks on the side)</span></label>
+        <label class="chip"><input type="radio" name="pencil" id="p-c" value="USB-C"><span>USB-C</span></label>
+        <label class="chip"><input type="radio" name="pencil" id="p-pro" value="Pencil Pro"><span>Pencil Pro</span></label>
+        <label class="chip"><input type="radio" name="pencil" id="p-unk" value="Not sure"><span>Not sure</span></label>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">6</span><h2>What bugs you in Clip Studio or Krita?</h2></div>
+      <p class="hint">Slow, confusing, missing, too many menus, anything.</p>
+      <textarea id="annoy" placeholder="e.g. the layer panel is too small, I can never find…"></textarea>
+    </section>
+
+    <section class="sheet">
+      <div class="q-head"><span class="q-num">7</span><h2>If you could wish for one thing in your drawing app, what would it be?</h2></div>
+      <textarea id="wish" placeholder="Anything at all"></textarea>
+    </section>
+
+    <section class="sheet send">
+      <div class="q-head"><span class="q-num" style="color:var(--accent)">✓</span><h2>Send it to Dad</h2></div>
+      <p class="hint">Copy your answers, then paste them into a text to Dad.</p>
+      <p class="progress" id="progress">0 of 7 answered</p>
+      <div class="actions">
+        <button type="submit" id="copy">Copy my answers</button>
+        <button type="button" class="ghost" id="save" hidden>Save here too</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <div id="fallback" hidden>
+        <p class="hint">Copying didn't work here. Press and hold the text below, Select All, then Copy.</p>
+        <textarea id="fallback-text" readonly></textarea>
+      </div>
+    </section>
+
+    </div>
+  </form>
+</main>
+
+<script>
+(function () {
+  const form = document.getElementById('f');
+  const status = document.getElementById('status');
+  const DRAFT_KEY = 'ipad-setup-draft-v1';
+
+  function checked(selector) {
+    return Array.from(form.querySelectorAll(selector + ' input:checked')).map(i => i.value);
+  }
+  function radio(name) {
+    const el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function collect() {
+    return {
+      tools: checked('[data-name="tools"]'),
+      toolsOther: val('tools-other'),
+      hand: radio('hand'),
+      orientation: radio('orient'),
+      gestures: checked('[data-name="gestures"]'),
+      doubleTapDoes: val('g-dtap-what'),
+      pencil: radio('pencil'),
+      annoyances: val('annoy'),
+      wish: val('wish')
+    };
+  }
+
+  function answeredCount(a) {
+    return [
+      a.tools.length || a.toolsOther, a.hand, a.orientation,
+      a.gestures.length || a.doubleTapDoes, a.pencil, a.annoyances, a.wish
+    ].filter(Boolean).length;
+  }
+
+  function asText(a) {
+    const line = (label, v) => label + ': ' + (v && v.length ? v : '(skipped)');
+    return [
+      'My iPad drawing setup',
+      '',
+      line('1. Tools I use most', a.tools.join(', ') + (a.toolsOther ? (a.tools.length ? '; ' : '') + a.toolsOther : '')),
+      line('2. Drawing hand', a.hand),
+      line('3. iPad orientation', a.orientation),
+      line('4. Moves I use', a.gestures.join(', ') + (a.doubleTapDoes ? (a.gestures.length ? '; ' : '') + 'double-tap does: ' + a.doubleTapDoes : '')),
+      line('5. Apple Pencil', a.pencil),
+      line('6. What bugs me', a.annoyances),
+      line('7. My wish', a.wish)
+    ].join('\n');
+  }
+
+  function update() {
+    const a = collect();
+    document.getElementById('progress').textContent = answeredCount(a) + ' of 7 answered';
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(a)); } catch (e) {}
+  }
+
+  function restore() {
+    let a;
+    try { a = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch (e) { a = null; }
+    if (!a) return;
+    const tick = (sel, values) => form.querySelectorAll(sel + ' input').forEach(i => { i.checked = (values || []).includes(i.value); });
+    tick('[data-name="tools"]', a.tools);
+    tick('[data-name="gestures"]', a.gestures);
+    [['hand', a.hand], ['orient', a.orientation], ['pencil', a.pencil]].forEach(([n, v]) => {
+      form.querySelectorAll('input[name="' + n + '"]').forEach(i => { i.checked = i.value === v; });
+    });
+    document.getElementById('tools-other').value = a.toolsOther || '';
+    document.getElementById('g-dtap-what').value = a.doubleTapDoes || '';
+    document.getElementById('annoy').value = a.annoyances || '';
+    document.getElementById('wish').value = a.wish || '';
+  }
+
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const text = asText(collect());
+    const fb = document.getElementById('fallback');
+    const fbText = document.getElementById('fallback-text');
+    const showFallback = () => {
+      fbText.value = text; fb.hidden = false;
+      status.textContent = '';
+      fbText.focus(); fbText.select();
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        fb.hidden = true;
+        status.textContent = 'Copied. Now paste it in a text to Dad.';
+      }, showFallback);
+    } catch (err) { showFallback(); }
+  });
+
+  restore();
+  update();
+
+  // Saving into the page only works for people Dad has given edit access.
+  // If it's not available, the button stays hidden and copying still works.
+  (async function () {
+    if (!window.claude || !window.claude.use) return;
+    const db = await window.claude.use('db');
+    if (!db) return;
+    const user = await window.claude.use('user');
+    if (user) {
+      const allowed = await user.can('data.write');
+      if (allowed === false) return;
+    }
+    const saveBtn = document.getElementById('save');
+    saveBtn.hidden = false;
+    saveBtn.addEventListener('click', async function () {
+      saveBtn.disabled = true;
+      try {
+        await db.collection('answers').add(Object.assign({ savedAt: new Date().toISOString() }, collect()));
+        status.textContent = 'Saved. Dad can see it too.';
+      } catch (err) {
+        saveBtn.hidden = true;
+        status.textContent = "Couldn't save here. Use Copy my answers instead.";
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+  })();
+})();
+</script>
