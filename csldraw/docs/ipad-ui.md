@@ -82,4 +82,4 @@ Sent as a page with pictures: https://claude.ai/artifact/3MHKaBM9XaP7HUSDh2ZcCH
 - [ ] Portrait, landscape, or both?
 - [ ] Which finger and Pencil gestures does she rely on?
 - [ ] What bugs her in Clip Studio or Krita?
-- [ ] One wish for the app.
+- [ ] What would make it better than any other drawing app; what is missing everywhere else?
