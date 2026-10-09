@@ -14,6 +14,7 @@ hunting through menus. Reference points: Clip Studio on iPad and Procreate.
 
 | Item | Value | Effect on the UI |
 |---|---|---|
+| Background | Senior, UCSC Art & Design: Games + Playable Media (AGPM) | Game-art workflows matter: pixel art, sprites, tiling, animation, PNG export for engines. She studies experience design; invite her to co-design the screens |
 | Hand | Right | Tool sliders and panels on the left edge, out from under the drawing hand |
 | iPad | iPad Pro 12.9" (2021, M1) | Large screen; RAM is 8 or 16 GB depending on storage, so test big canvases |
 | Pencil | Apple Pencil 2nd gen | Pressure, tilt, double-tap. No hover, no squeeze |
@@ -77,9 +78,11 @@ Ship a tuned default profile inside the iPad build:
 Sent as a page with pictures: https://claude.ai/artifact/3MHKaBM9XaP7HUSDh2ZcCH
 (answers come back as text). Hand and Pencil are already known (above).
 
-- [ ] Which tools does she use most in Clip Studio?
+- [ ] What does she make most (concept art, characters, pixel art, UI, textures, animation, comics…)?
+- [ ] Which tools does she use most?
 - [ ] Simple (Procreate), panels (Clip Studio), or in between?
 - [ ] Portrait, landscape, or both?
 - [ ] Which finger and Pencil gestures does she rely on?
 - [ ] What bugs her in Clip Studio or Krita?
 - [ ] What would make it better than any other drawing app; what is missing everywhere else?
+- [ ] Does she want to co-design the iPad screens?
