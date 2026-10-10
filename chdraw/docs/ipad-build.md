@@ -1,14 +1,14 @@
 # Building Krita for the iPad
 
-The iPad build comes from this repo, `jmhunter83/csldraw`, a fork of
+The iPad build comes from this repo, `jmhunter83/chdraw`, a fork of
 [LibrePaint](https://github.com/serika12345/librepaint), a GPL-3.0 Krita
 derivative with a working iPadOS port. LibrePaint signs through AltStore;
-we sign with Jacob's Apple Developer account instead (`csldraw/scripts/sign-ipa.sh`).
+we sign with Jacob's Apple Developer account instead (`chdraw/scripts/sign-ipa.sh`).
 Run all commands from the repo root.
 
 Status: **not built yet.** Steps below are from LibrePaint's
 `docs/architecture/DEVELOPMENT.md` (Japanese), checked against its source on
-2026-10-09. `csldraw/scripts/sign-ipa.sh` has not been run yet; first run is on Jacob's Mac.
+2026-10-09. `chdraw/scripts/sign-ipa.sh` has not been run yet; first run is on Jacob's Mac.
 
 ## What LibrePaint pins
 
@@ -27,8 +27,13 @@ LibrePaint's build refuses other Xcode versions unless overridden.
 
 ## 1. Clone
 
-- [x] Fork LibrePaint to `jmhunter83/csldraw` (done; `master` = LibrePaint `e9946cc`).
-- [ ] Clone on the Mac: `git clone https://github.com/jmhunter83/csldraw`
+- [x] Fork LibrePaint to `jmhunter83/chdraw` (done; `master` = LibrePaint `e9946cc`).
+- [ ] Clone on the Mac. Current work is on branch `claude/serene-volta-xwtcc5`:
+
+  ```sh
+  git clone --filter=blob:none --branch claude/serene-volta-xwtcc5 \
+    https://github.com/jmhunter83/chdraw.git chdraw
+  ```
 
 The fork copied only `master`. LibrePaint's newer work is on its `develop`
 branch. To pull it in later:
@@ -54,7 +59,7 @@ git fetch upstream develop
 - [ ] Check the host:
 
   ```sh
-  cd csldraw
+  cd chdraw
   nix develop .#librepaint-ios
   packaging/ios/scripts/check-host.sh
   ```
@@ -84,7 +89,7 @@ dependencies; expect hours.
 ## 5. Sign and install
 
 ```sh
-csldraw/scripts/sign-ipa.sh \
+chdraw/scripts/sign-ipa.sh \
   --ipa build-ios/nix-results/librepaint-ios-ipa/LibrePaint-iOS-unsigned.ipa \
   --profile ~/Downloads/Krita_Dev.mobileprovision \
   --identity "Apple Development: Your Name (XXXXXXXXXX)" \

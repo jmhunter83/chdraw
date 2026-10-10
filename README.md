@@ -1,5 +1,5 @@
-> **csldraw:** this is Jacob's fork of LibrePaint. Fork-specific docs and
-> scripts are in [`csldraw/`](csldraw/README.md).
+> **chdraw:** this is Jacob's fork of LibrePaint. Fork-specific docs and
+> scripts are in [`chdraw/`](chdraw/README.md).
 
 # LibrePaint
 

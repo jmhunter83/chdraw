@@ -4,7 +4,7 @@
 # AltStore/LiveContainer path. macOS only (codesign, security, devicectl).
 #
 # Usage:
-#   csldraw/scripts/sign-ipa.sh --ipa IN.ipa --profile P.mobileprovision \
+#   chdraw/scripts/sign-ipa.sh --ipa IN.ipa --profile P.mobileprovision \
 #       --identity "Apple Development: Name (ID)" [--out OUT.ipa] [--install DEVICE]
 #
 #   --ipa       unsigned IPA, e.g.

@@ -3,7 +3,7 @@
 ## 2026-10-09: Krita everywhere, LibrePaint fork for the iPad
 
 **Decision.** Stock Krita 5.3 on the Mac and the Windows laptop. On the iPad, a
-Krita build from our fork of LibrePaint, [jmhunter83/csldraw](https://github.com/jmhunter83/csldraw). Drawings are `.kra` files synced
+Krita build from our fork of LibrePaint, [jmhunter83/chdraw](https://github.com/jmhunter83/chdraw). Drawings are `.kra` files synced
 through iCloud Drive or Google Drive.
 
 **Why Krita.** Krita already matches or beats Clip Studio for painting, line
@@ -40,5 +40,5 @@ Jacob's developer account. It is not distributed through the App Store.
 ## Clip Studio import
 
 See [clip-import.md](clip-import.md). The batch converter
-(`csldraw/scripts/clip2kra.sh`) uses clip_to_psd (MIT) and Krita's command-line
+(`chdraw/scripts/clip2kra.sh`) uses clip_to_psd (MIT) and Krita's command-line
 export. A native `.clip` importer on clipparse (MIT) is planned for later.

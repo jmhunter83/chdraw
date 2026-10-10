@@ -8,7 +8,7 @@ Clip Studio saves drawings as `.clip`, a proprietary format. Krita cannot open
 | Route | Needs | Best for |
 |---|---|---|
 | 1. Export from Clip Studio | Clip Studio installed | A few drawings, or files with vector/tone layers |
-| 2. `csldraw/scripts/clip2kra.sh` | Python 3, Krita | Whole folders, without opening Clip Studio |
+| 2. `chdraw/scripts/clip2kra.sh` | Python 3, Krita | Whole folders, without opening Clip Studio |
 | 3. Native `.clip` import (planned) | iPad build | Opening `.clip` straight from Files on the iPad |
 
 ## Route 1: export from Clip Studio
@@ -21,7 +21,7 @@ Clip Studio saves drawings as `.clip`, a proprietary format. Krita cannot open
 
 ## Route 2: batch converter
 
-`csldraw/scripts/clip2kra.sh` converts `.clip` → `.psd` → `.kra` without Clip Studio.
+`chdraw/scripts/clip2kra.sh` converts `.clip` → `.psd` → `.kra` without Clip Studio.
 It uses [clip_to_psd](https://github.com/dobrokot/clip_to_psd) (MIT), pinned to
 commit `e8db68c` and checked by SHA-256, then Krita's command-line export.
 
@@ -31,13 +31,13 @@ the Mac.
 
 ```sh
 # Mac, with Krita installed via Homebrew or krita.org
-csldraw/scripts/clip2kra.sh ~/Desktop/clip-files ~/Desktop/krita-files
+chdraw/scripts/clip2kra.sh ~/Desktop/clip-files ~/Desktop/krita-files
 
 # keep the intermediate PSDs too
-csldraw/scripts/clip2kra.sh --keep-psd ~/Desktop/clip-files ~/Desktop/krita-files
+chdraw/scripts/clip2kra.sh --keep-psd ~/Desktop/clip-files ~/Desktop/krita-files
 
 # PSD only, no Krita needed
-csldraw/scripts/clip2kra.sh --psd-only ~/Desktop/clip-files ~/Desktop/psd-files
+chdraw/scripts/clip2kra.sh --psd-only ~/Desktop/clip-files ~/Desktop/psd-files
 ```
 
 - Subfolders are mirrored in the output folder.

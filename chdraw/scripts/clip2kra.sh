@@ -4,7 +4,7 @@
 #   .clip --(clip_to_psd.py)--> .psd --(krita --export)--> .kra
 #
 # Usage:
-#   csldraw/scripts/clip2kra.sh [--keep-psd] [--psd-only] INPUT OUTPUT_DIR
+#   chdraw/scripts/clip2kra.sh [--keep-psd] [--psd-only] INPUT OUTPUT_DIR
 #
 #   INPUT       a .clip file, or a folder searched recursively for .clip files
 #   OUTPUT_DIR  where .kra files go; subfolders mirror INPUT
@@ -14,7 +14,7 @@
 # Environment overrides:
 #   KRITA        path to the krita binary
 #   CLIP_TO_PSD  path to clip_to_psd.py (otherwise downloaded, pinned, and
-#                hash-checked into ~/.cache/csldraw/)
+#                hash-checked into ~/.cache/chdraw/)
 #
 # Written for the bash 3.2 that ships with macOS.
 
@@ -60,7 +60,7 @@ find_clip_to_psd() {
         echo "$CLIP_TO_PSD"
         return
     fi
-    local cache="${XDG_CACHE_HOME:-$HOME/.cache}/csldraw"
+    local cache="${XDG_CACHE_HOME:-$HOME/.cache}/chdraw"
     local script="$cache/clip_to_psd-${CLIP_TO_PSD_COMMIT:0:12}.py"
     if [ ! -f "$script" ]; then
         mkdir -p "$cache"
